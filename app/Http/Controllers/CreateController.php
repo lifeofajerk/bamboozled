@@ -22,7 +22,7 @@ class CreateController extends AuthController
 			'birthday' => 'required|date',
 			'hire_date' => 'required|date',
 			'salary' => 'required|integer',
-			'social_security' => 'required|unique:employees,social_security|max:11|regex:^\d{3}-?\d{2}-?\d{4}$^'
+			'social_security' => 'required|unique:employees,social_security|max:11|regex:/(^\d{3}-?\d{2}-?\d{4}$)/u'
 			]);	
 	
 		$employee = new Employee();

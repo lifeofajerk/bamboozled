@@ -23,7 +23,7 @@ class EditController extends AuthController
 			'birthday' => 'required|date',
 			'hire_date' => 'required|date',
 			'salary' => 'required|integer',
-			'social_security' => 'required|unique:employees,social_security,'. $id .'|max:11|regex:^\d{3}-?\d{2}-?\d{4}$^'
+			'social_security' => 'required|unique:employees,social_security,'. $id .'|max:11|regex:/(^\d{3}-?\d{2}-?\d{4}$)/u'
 			]);	
 	
 		Employee::where('id', '=', $id)->update($request->except(['_method','_token', 'id']));
