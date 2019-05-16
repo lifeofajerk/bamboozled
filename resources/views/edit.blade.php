@@ -5,12 +5,6 @@
 
 <script type="text/javascript">
 
-	function Edit()
-	{
-		document.getElementById("editForm").action="{{ route('edit', $employee[0]['id']) }}";
-		document.getElementById("editForm").submit();
-	}
-
 	function Delete()
 	{
 		var result = confirm("Are you sure you would like to delete this employee?");
@@ -30,7 +24,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Edit Employee</div>      		
  				<div class="panel-body">
-					<form id="editForm" method="POST" class="form-horizontal">
+ 					<form id="editForm" method="POST" action="{{ route('edit', $employee[0]['id']) }}"  class="form-horizontal">
 						
 						{{ csrf_field() }}
 
@@ -81,7 +75,7 @@
 						<div class="form-group">
 							<span>
 								<div class="col-md-8 col-md-offset-4" style="display: inline-block">
-									<button type="button" class="btn btn-primary" id="editButton" onclick="Edit()">Update</button>
+									<button type="submit" class="btn btn-primary" id="editButton">Update</button>
 									<button type="button" class="btn btn-primary" id="deleteButton" onclick="Delete()">Delete</button>
 									</form>
 								</div>
